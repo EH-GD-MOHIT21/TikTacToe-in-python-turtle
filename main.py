@@ -3,11 +3,12 @@ from time import sleep
 
 
 def exi_t():
-    print("you pressed q -> quit")
+    print("you pressed q -> quit")      #q for exit the program
     exit()
 
 
 def match():
+    # matching rows,column diagonal to determine winner and game-over
     if(l[0][0] == l[0][1] and l[0][1] == l[0][2] == 'X') or (l[1][0] == l[1][1] and l[1][0] == l[1][2] == 'X') or (l[2][0] == l[2][1] and l[2][1] == l[2][2] == 'X'):
         pen.goto(-150, 300)
         pen.write("GAME Over Player 1 Won!!!!", font="Courier 20 normal")
@@ -38,19 +39,20 @@ def match():
         pen.write("GAME Over Player 2 Won!!!", font="Courier 20 normal")
         sleep(2.5)
         exit()
+        
     elif(count == 9):
-        pen.goto(0, 300)
+        pen.goto(0, 300)#if count is 9 and none of above is true then it's a draw
         pen.write("It's A Draw", font="Courier 20 normal")
         sleep(2.5)
         exit()
 
 
 def click(x, y):
-    move = False
+    move = False    #to determine a valid move
     global count, string, l
     if(x >= -245 and x <= -105) and (y >= 85 and y <= 215):
         i = 0
-        j = 0
+        j = 0   #respective position according to mouse click x-> xcor y-> ycor of curser
         pen.goto(-205, 90)
         if(l[i][j] == ''):
             move = True
@@ -148,7 +150,7 @@ if __name__ == "__main__":
         pen.color(color)
     except:
         print("Invalid Color!!!!!!")
-        pen.color("black")
+        pen.color("black")  #default is black color
     pen.up()
     wn = turtle.Screen()
     wn.bgcolor("black")
