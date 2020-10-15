@@ -154,7 +154,11 @@ if __name__ == "__main__":
     pen.up()
     wn = turtle.Screen()
     wn.bgcolor("black")
-    wn.bgpic("board.gif")
+    try:
+        wn.bgpic("board.gif")
+    except:
+        print("Image not found...:-<")
+        exit()
     wn.setup(850, 750)
     wn.listen()
     wn.onclick(click, 1)
